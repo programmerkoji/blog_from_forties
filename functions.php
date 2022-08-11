@@ -1,4 +1,7 @@
 <?php
+include(get_template_directory() . '/add_styles.php');
+include(get_template_directory() . '/add_scripts.php');
+
 /***
 　wp_head  remove_action
 ***/
@@ -24,18 +27,8 @@ remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
-/*jquerydelete*/
-function delete_wphead_jquery() {
-  wp_deregister_script('jquery');
-}
-add_action( 'wp_enqueue_scripts', 'delete_wphead_jquery' );
-
 /*title delete*/
 remove_action( 'wp_head', '_wp_render_title_tag', 1 );
-
-/*css delete*/
-remove_action( 'wp_head', 'wp_print_styles',8);
-remove_action( 'wp_head', 'wp_print_head_scripts',9);
 
 add_filter( 'show_admin_bar', '__return_false' );
 

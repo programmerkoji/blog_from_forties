@@ -2,47 +2,69 @@
 
 <div class="bl_mv"></div>
 
-<!-- main -->
-<main>
-<article>
-
-<?php if( have_posts() ): ?>
-
 <!-- contents -->
-<section class="ly_post">
-<div class="ly_cont_inner">
+<div class="ly_cont">
+  <div class="ly_cont_inner ly_cont__col">
 
-<?php while( have_posts() ): the_post(); ?>
-<article class="bl_post">
+    <!-- main -->
+    <main class="ly_cont_main">
+      <article>
 
-<div class="bl_post_head">
-<time class="bl_post_time" datetime="<?php the_time( 'Y-m-d' ); ?>"><?php the_time( 'Y.m.d' ); ?></time>
-<ul class="bl_post_catLabel">
-<li>カテゴリ</li>
-</ul>
+        <?php if( have_posts() ): ?>
+
+        <!-- contents -->
+        <section class="ly_post">
+
+          <?php while( have_posts() ): the_post(); ?>
+          <article class="bl_post">
+
+            <div class="bl_post_head">
+              <time class="bl_post_time" datetime="<?php the_time( 'Y-m-d' ); ?>"><?php the_time( 'Y.m.d' ); ?></time>
+              <ul class="bl_post_catLabel">
+                <?php
+                $category = get_the_category();
+                $label_name = $category[0]->name;
+                $label_slug = $category[0]->slug;
+                echo '<li class="el_catLabel ' . esc_html($label_slug) . '">' . esc_html($label_name) . '</li>';
+                ?>
+              </ul>
+            </div>
+            <!-- /.bl_post_head -->
+
+          <h1 class="bl_post_ttl"><?php the_title(); ?></h1>
+
+          <div class="bl_post_conts">
+            <?php the_content(); ?>
+          </div>
+          <!-- /.bl_post_conts -->
+
+          <div class="bl_pager">
+            <ul class="bl_pager_inner">
+              <li class="bl_pager_link bl_pager_prev"><?php previous_post_link('%link', '← 前の記事へ'); ?></li>
+              <li class="bl_pager_link bl_pager_next"><?php next_post_link('%link', '次の記事へ →'); ?></li>
+            </ul>
+          </div>
+          <!-- /.bl_pager -->
+
+          </article>
+          <!-- /.bl_post -->
+          <?php endwhile; ?>
+
+        </section>
+        <!-- /.bl_post -->
+        <?php endif; ?>
+
+      </article>
+    </main>
+
+    <!-- aside -->
+    <aside class="ly_aside">
+      <?php echo get_template_part('include/aside'); ?>
+    </aside>
+
+  </div>
+  <!-- ly_cont_inner -->
 </div>
-<!-- /.bl_post_head -->
-
-<h2 class="bl_post_ttl"><?php the_title(); ?></h2>
-
-<div class="bl_post_conts">
-  <?php the_content(); ?>
-</div>
-<!-- /.bl_post_conts -->
-
-
-
-</article>
-<!-- /.bl_post -->
-<?php endwhile; ?>
-
-</div>
-<!-- /.ly_cont_inner -->
-</section>
-<!-- /.bl_post -->
-<?php endif; ?>
-
-</article>
-</main>
+<!-- /.ly_cont -->
 
 <?php get_footer(); ?>

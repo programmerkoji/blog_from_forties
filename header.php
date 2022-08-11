@@ -17,11 +17,6 @@ if(is_home() || is_front_page()) {
 }?>
 <title><?php echo $title; bloginfo('name'); ?></title>
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/top.css">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/single.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp_s.min.css">
-
 <?php wp_head(); ?>
 </head>
 
@@ -31,7 +26,11 @@ if(is_home() || is_front_page()) {
 <header class="ly_head">
 <div class="ly_cont_inner bl_head">
 
+<?php if(is_home() || is_front_page()): ?>
 <h1 class="bl_head_logo"><a href="<?php echo esc_url( home_url('/')); ?>" class="hp_opacity1"><img src="<?php echo get_template_directory_uri(); ?>/images/common/logo.svg" width="256" height="52" alt="40第からの挑戦"></a></h1>
+<?php else: ?>
+<p class="bl_head_logo"><a href="<?php echo esc_url( home_url('/')); ?>" class="hp_opacity1"><img src="<?php echo get_template_directory_uri(); ?>/images/common/logo.svg" width="256" height="52" alt="40第からの挑戦"></a></p>
+<?php endif; ?>
 
 <!-- SNS -->
 <ul class="bl_sns">

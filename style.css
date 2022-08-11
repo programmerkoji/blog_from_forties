@@ -28,15 +28,27 @@ Author: Koji Sato
 a:focus {
 	outline: none;
 }
-
+a:hover {
+	opacity: 0.7;
+	transition: opacity 0.3s ease;
+}
+@font-face {
+	font-family: "MPLUS";
+	src: url('font/MPLUS1p-Bold_after.woff2') format('woff2');
+	font-weight: 700;
+}
+@font-face {
+	font-family: "MPLUS";
+	src: url('font/MPLUS1p-Regular_after.woff2') format('woff2');
+	font-weight: 400;
+}
 body {
 	background: #E9F2F6;
-	font-family: "YakuHanJPs", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	line-height: 1.5;
+	font-family: "MPLUS", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+	line-height: 1.7;
 	letter-spacing: 0.04em;
 	-webkit-text-size-adjust: 100%;
+	font-feature-settings: "palt";
 	color: #333;
 }
 body, html {
@@ -104,6 +116,19 @@ textarea {
 	font-size: 16px;
 	outline: none;
 }
+input:-webkit-autofill{
+	box-shadow: 0 0 0px 1000px #fff inset;
+}
+input[type=checkbox] {
+	display: none;
+}
+input[type=radio] {
+	display: none;
+}
+button, textarea {
+	font-family: inherit;
+	font-size: 100%;
+}
 @media screen and (max-width : 767px){
 	body {
 		font-size: 14px;
@@ -123,37 +148,45 @@ common
 }
 .ly_cont__col {
 	display: flex;
-	flex-wrap: wrap;
-	gap: 40px;
+	gap: 32px;
 }
 .ly_cont_main {
+	max-width: 744px;
 	flex: 1;
 }
 .ly_aside {
-	flex: 0 1 240px;
-	background: #f9f9f9;
+	flex: 0 1 248px;
 }
 .el_catLabel {
 	font-size: 14px;
 	color: #fff;
 	min-width: 72px;
 	height: 24px;
-	padding: 0 4px;
+	padding: 0 8px;
 	background: #999999;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
+.el_catLabel.html-css {
+	background: #93C088;
+}
+.el_catLabel.wordpress {
+	background: #F7B23C;
+}
 
 @media screen and (max-width : 1023px){
-
-	.ly_cont__col {
-		gap: 24px;
+	.ly_cont {
+		padding: 32px 0 56px;
 	}
-}
-@media screen and (max-width : 767px){
 	.ly_cont__col {
 		flex-direction: column;
+	}
+	.ly_cont_main {
+		max-width: 100%;
+	}
+	.ly_aside {
+		width: 100%;
 	}
 }
 /************************
@@ -228,7 +261,7 @@ header
 /* mv */
 .bl_mv {
 	background: url(images/common/mv_bg.jpg) top center/cover no-repeat;
-	height: 38.9vh;
+	height: 26vh;
 	position: relative;
 	z-index: 0;
 }
@@ -253,7 +286,6 @@ footer
 .ly_foot {
 	background: #505050;
 }
-
 .bl_foot_copyright {
 	height: 32px;
 	display: flex;
@@ -274,5 +306,168 @@ footer
 	}
 	.bl_footNav {
 		width: 100%;
+	}
+}
+
+/************************
+一覧メイン
+*************************/
+.bl_archive_item {
+	padding: 16px 0;
+	border-bottom: 1px solid #ccc;
+}
+.bl_archive_item:first-of-type {
+	padding-top: 0;
+}
+.bl_archive_link {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.bl_archive_head {
+	width: 30%;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+}
+.bl_archive_time {
+	font-size: 14px;
+  letter-spacing: 0;
+  position: relative;
+}
+.bl_archive_time::before {
+  content: "";
+  background: url(../images/common/clock-regular.svg) top center/cover no-repeat;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.bl_archive_ttl {
+	width: 70%;
+	font-size: 16px;
+	padding-left: 16px;
+}
+@media screen and (max-width : 767px){
+	.bl_archive_link {
+		gap: 8px;
+	}
+	.bl_archive_head {
+		width: 100%;
+		gap: 8px 16px;
+	}
+	.bl_archive_time::before {
+		content: "";
+		background: url(../images/common/clock-regular.svg) top center/cover no-repeat;
+		width: 16px;
+		height: 16px;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+	}
+	.bl_archive_ttl {
+		width: 100%;
+		font-size: 16px;
+		padding-left: 0;
+	}
+	
+}
+/************************
+pagenavi
+*************************/
+.wp-pagenavi {
+	margin-top: 56px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+}
+.wp-pagenavi > * {
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	width: 26px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.wp-pagenavi a {
+	background: #ACACAC;
+}
+.wp-pagenavi .current {
+	background: #766A5C;
+}
+.wp-pagenavi .extend {
+	color: #545454;
+	font-size: 16px;
+}
+
+/************************
+aside
+*************************/
+.bl_aside_item:not(:first-child) {
+	margin-top: 24px;
+}
+/* category */
+.bl_category {
+	background: #f9f9f9;
+}
+.bl_category_ttl {
+	font-size: 18px;
+	font-weight: 400;
+	padding: 8px 16px;
+	background: #3A595E;
+	color: #fff;
+}
+.bl_category_ttl .fa-list {
+	margin-right: 8px;
+	font-size: 16px;
+}
+.bl_category_item > a {
+	display: block;
+	padding: 8px 16px;
+	font-size: 14px;
+	transition: background-color 0.3s ease;
+}
+.bl_category_item > a:hover {
+	background-color: rgba(58, 89, 94, 0.2);
+	opacity: 1;
+	transition: background-color 0.3s ease;
+}
+/* profile */
+.bl_profile {
+	padding: 24px 16px;
+	background: #f9f9f9;
+}
+.bl_profile_imgWrapper {
+	width: 150px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 auto 16px;
+}
+.bl_profile_ttl {
+	font-size: 18px;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 8px;
+	padding-bottom: 4px;
+}
+.bl_profile_txt {
+	font-size: 14px;
+}
+@media screen and (max-width : 750px){
+	.bl_category_ttl {
+		font-size: 16px;
+		padding: 8px 16px;
+	}
+	.bl_category_item > a {
+		padding: 12px 16px;
+	}
+	.bl_profile_imgWrapper {
+		width: 180px;
 	}
 }
