@@ -459,7 +459,7 @@ aside
 .bl_profile_txt {
 	font-size: 14px;
 }
-@media screen and (max-width : 750px){
+@media screen and (max-width : 767px){
 	.bl_category_ttl {
 		font-size: 16px;
 		padding: 8px 16px;
