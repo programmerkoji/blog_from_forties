@@ -36,8 +36,8 @@ if(is_home() || is_front_page()) {
 
 <!-- SNS -->
 <ul class="bl_sns">
-<li class="bl_sns_item twitter"><a href="" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/common/twitter.svg" alt="twitter"></a></li>
-<li class="bl_sns_item facebook"><a href="" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/common/facebook.png" alt="facebook"></a></li>
+<li class="bl_sns_item twitter"><a href="https://twitter.com/from_forties" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/common/twitter.svg" alt="twitter"></a></li>
+<li class="bl_sns_item github"><a href="https://github.com/programmerkoji" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/common/github.png" alt="github"></a></li>
 </ul>
 <!-- /.bl_sns -->
 
