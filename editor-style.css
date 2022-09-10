@@ -9,7 +9,7 @@
   font-family: "MPLUS", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
 }
 
-h2 {
+.bl_post_conts h2 {
   font-size: 20px;
   color: #fcfcfc;
   background: #4B7A95;
@@ -18,13 +18,13 @@ h2 {
   padding: 8px 24px;
   margin: 1.5em 0 1em;
 }
-h3 {
+.bl_post_conts h3 {
   font-size: 20px;
   padding-left: 16px;
   position: relative;
   margin: 1.5em 0 1em;
 }
-h3::before {
+.bl_post_conts h3::before {
   content: "";
   background: #F0E586;
   width: 4px;
@@ -34,13 +34,24 @@ h3::before {
   left: 0;
   transform: translateY(-50%);
 }
-p + p {
+.bl_post_conts p + p {
   margin-top: 0.5em;
 }
-p > img {
+.bl_post_conts p > img {
   max-width: 100%;
   width: auto;
 }
+.bl_post_conts li {
+  padding-left: 1em;
+  position: relative;
+}
+.bl_post_conts li::before {
+  content: "・";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .text_bold {
   font-weight: bold;
 }

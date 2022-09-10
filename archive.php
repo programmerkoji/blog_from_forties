@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php echo get_template_part('include/header'); ?>
+
 <!-- contents -->
 <div class="ly_cont">
 <div class="ly_cont_inner ly_cont__col">

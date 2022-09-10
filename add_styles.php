@@ -8,6 +8,14 @@ function common_styles() {
         array(),
         filemtime( get_theme_file_path( 'style.css' ) )
     );
+    if(is_page('portfolio')) {
+        wp_enqueue_style(
+            'portfolio-style',
+            get_theme_file_uri( 'css/portfolio.css'),
+            array(),
+            filemtime( get_theme_file_path( 'css/portfolio.css' )),
+        );
+    }
     if(is_page(array("contact","contact/check","contact/thanks"))) {
         wp_enqueue_style(
             'contact-style',

@@ -1,0 +1,152 @@
+@charset "utf-8";
+
+/* --------------
+header
+-----------------*/
+.ly_head.portfolio {
+  box-shadow: 0 2px 6px rgba(51, 51, 51, 0.1);
+  background: inherit;
+}
+.ly_head.portfolio.is_fixed {
+  background: inherit;
+}
+.bl_head_logo {
+  max-width: 383px;
+  width: 100%;
+}
+/* --------------
+main
+-----------------*/
+.ly_main {
+  padding-top: 80px;
+}
+.bl_portfolio:first-of-type {
+  padding-top: 64px;
+}
+.bl_portfolio:not(:first-of-type) {
+  padding-top: 40px;
+}
+.bl_portfolio:last-of-type {
+  padding-bottom: 80px;
+}
+.el_mainTtl {
+  font-size: 20px;
+  color: var(--white);
+  background: #4B7A95;
+  padding: 6px 12px;
+  margin-bottom: 24px;
+}
+.bl_conts_ttl {
+  font-size: 20px;
+  color: var(--white);
+  background: #4B7A95;
+  padding: 6px 12px;
+  margin-bottom: 24px;
+}
+
+.bl_media {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.bl_media_imgWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 40%;
+}
+.bl_media_imgLink {
+  width: 100%;
+  background: var(--white);
+  padding: 8px;
+  box-shadow: 1px 3px 10px rgba(51, 51, 51, 0.1);
+}
+.bl_media_img {
+  text-align: center;
+}
+.bl_media_img > figcaption {
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.bl_media_body {
+  width: calc(60% - 32px);
+}
+
+.bl_detail_ttl {
+  font-size: inherit;
+  font-weight: bold;
+  padding-left: 1em;
+  margin-bottom: 0.3em;
+  position: relative;
+}
+.bl_detail_ttl:not(:first-of-type) {
+  margin-top: 1.5em;
+}
+.bl_detail_ttl::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #333;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.bl_detail a {
+  text-decoration: underline;
+}
+
+.bl_functionList > div:not(:first-of-type) {
+  margin-top: 1em;
+}
+.bl_functionList_dttl {
+  margin-bottom: 0.3em;
+}
+.bl_functionList table {
+  font-size: 14px;
+}
+.bl_functionList_ddata {
+  overflow-x: auto;
+}
+
+th,
+td {
+  white-space: nowrap;
+  font-weight: normal;
+}
+tr:nth-of-type(2n) > th,
+tr:nth-of-type(2n) > td {
+  background: #eee;
+}
+
+.mt-1em {
+  margin-top: 1em;
+}
+
+@media screen and (max-width : 767px){
+  .ly_main {
+    padding-top: 62px;
+  }
+  .bl_portfolio {
+    padding: 40px 0 64px;
+  }
+  .el_mainTtl {
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+  .bl_media {
+    gap: 24px;
+  }
+  .bl_media_imgWrapper {
+    width: 100%;
+    gap: 16px;
+  }
+  .bl_media_img > figcaption {
+    font-size: 14px;
+  }
+  .bl_media_body {
+    width: 100%;
+  }
+}

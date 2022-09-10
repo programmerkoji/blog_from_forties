@@ -6,6 +6,14 @@ Author: Koji Sato
 /*=======================================================
 基本設定
 =======================================================*/
+/* 色設定 */
+:root {
+	--black-base: #333;
+	--white: #fcfcfc;
+	--darkblue: #3A595E;
+}
+
+/* リセット */
 * {
 	margin: 0;
 	padding: 0;
@@ -49,7 +57,7 @@ body {
 	letter-spacing: 0.04em;
 	-webkit-text-size-adjust: 100%;
 	font-feature-settings: "palt";
-	color: #333;
+	color: var(--black-base);
 }
 body, html {
 	height: 100%;
@@ -71,8 +79,14 @@ section {
 	display: block;
 }
 table {
-	border-collapse: separate;
-	border-spacing: 0;
+	border-collapse: collapse;
+	width: 100%;
+}
+th,
+td {
+	background: #fcfcfc;
+	padding: 8px;
+  border: 1px solid #b3b3b3;
 }
 ul,
 ol {
@@ -117,7 +131,7 @@ textarea {
 	outline: none;
 }
 input:-webkit-autofill{
-	box-shadow: 0 0 0px 1000px #fff inset;
+	box-shadow: 0 0 0px 1000px var(--white) inset;
 }
 input[type=checkbox] {
 	display: none;
@@ -159,7 +173,7 @@ common
 }
 .el_catLabel {
 	font-size: 14px;
-	color: #fff;
+	color: var(--white);
 	min-width: 72px;
 	height: 24px;
 	padding: 0 8px;
@@ -174,7 +188,16 @@ common
 .el_catLabel.wordpress {
 	background: #F7B23C;
 }
-
+.el_bulletList > li {
+	padding-left: 1em;
+	position: relative;
+}
+.el_bulletList > li::before {
+	content: "・";
+	position: absolute;
+	top: 0;
+	left: 0;
+}
 @media screen and (max-width : 1023px){
 	.ly_cont {
 		padding: 32px 0 56px;
@@ -202,7 +225,7 @@ header
 	transition: background-color 0.3s ease-in-out;
 }
 .ly_head.is_fixed {
-	background-color: #fff;
+	background-color: var(--white);
 	transition: background-color 0.3s ease-in-out;
 }
 .bl_head {
@@ -226,7 +249,7 @@ header
 .bl_sns_item > a {
 	width: 40px;
 	height: 40px;
-	background: #fff;
+	background: var(--white);
 	border-radius: 50%;
 	overflow: hidden;
 	display: flex;
@@ -291,8 +314,8 @@ footer
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: #3A595E;
-	color: #fff;
+	background: var(--darkblue);
+	color: var(--white);
 	font-size: 14px;
 }
 @media screen and (max-width : 767px){
@@ -389,7 +412,7 @@ pagenavi
 .wp-pagenavi > * {
 	font-size: 14px;
 	font-weight: bold;
-	color: #fff;
+	color: var(--white);
 	width: 26px;
 	height: 32px;
 	display: flex;
@@ -421,8 +444,8 @@ aside
 	font-size: 18px;
 	font-weight: 400;
 	padding: 8px 16px;
-	background: #3A595E;
-	color: #fff;
+	background: var(--darkblue);
+	color: var(--white);
 }
 .bl_category_ttl .fa-list {
 	margin-right: 8px;

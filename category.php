@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php echo get_template_part('include/header'); ?>
+
 <div class="bl_mv"></div>
 
 <!-- contents -->
