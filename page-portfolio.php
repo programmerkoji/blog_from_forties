@@ -99,6 +99,11 @@
             </dd>
           </div>
         </dl>
+        <h3 class="bl_detail_ttl">工夫したところ</h3>
+        <ul class="el_bulletList">
+          <li>EagerLoadingでN+1問題を解消</li>
+          <li>ローカルスコープやクラスへの切り分けにより、Controllerの肥大化を防止</li>
+        </ul>
         <h3 class="bl_detail_ttl">使用技術</h3>
         <ul class="el_bulletList">
           <li>Laravel 8</li>
