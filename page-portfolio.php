@@ -144,7 +144,7 @@
       <!-- /.bl_media_imgWrapper -->
       <div class="bl_media_body bl_detail">
         <h3 class="bl_detail_ttl">サイトURL</h3>
-        <p>ユーザー：<a href="https://from-forties.net/english-words/login" target="_blank">https://from-forties.net/english-words/login</a></p>
+        <p><a href="https://from-forties.net/english-words/login" target="_blank">https://from-forties.net/english-words/login</a></p>
         <h3 class="bl_detail_ttl">アプリ概要</h3>
         <p>英単語の記憶度を管理するアプリ</p>
         <h3 class="bl_detail_ttl">なぜ作成したのか</h3>
