@@ -131,8 +131,8 @@ tr:nth-of-type(2n) > td {
   .ly_main {
     padding-top: 62px;
   }
-  .bl_portfolio {
-    padding: 40px 0 64px;
+  .bl_portfolio:first-of-type {
+    padding-top: 40px;
   }
   .el_mainTtl {
     font-size: 18px;
