@@ -109,6 +109,9 @@ main
 .bl_functionList_ddata {
   overflow-x: auto;
 }
+.bl_functionList_tableWrapper {
+  overflow-x: auto;
+}
 
 th,
 td {
