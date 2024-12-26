@@ -198,6 +198,19 @@ common
 	top: 0;
 	left: 0;
 }
+.el_tagLabel {
+	font-size: 12px;
+	padding: 0 8px 0 14px;
+	border-radius: 2rem;
+	position: relative;
+	color: var(--white);
+	background: var(--darkblue);
+}
+.el_tagLabel::before {
+	content: "#";
+	position: absolute;
+	left: 4px;
+}
 @media screen and (max-width : 1023px){
 	.ly_cont {
 		padding: 32px 0 56px;
@@ -350,9 +363,8 @@ footer
 .bl_archive_head {
 	width: 30%;
 	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	gap: 8px 16px;
+	flex-direction: column;
+	gap: 4px 16px;
 }
 .bl_archive_time {
 	font-size: 14px;
@@ -374,13 +386,25 @@ footer
 	font-size: 16px;
 	padding-left: 16px;
 }
+.bl_post_catLabel {
+	display: flex;
+	align-items: center;
+	gap: 4px 8px;
+	flex-wrap: wrap;
+}
+.bl_tagWrapper {
+	display: flex;
+	align-items: center;
+	gap: 4px 8px;
+	flex-wrap: wrap;
+}
 @media screen and (max-width : 767px){
 	.bl_archive_link {
 		gap: 8px;
 	}
 	.bl_archive_head {
 		width: 100%;
-		gap: 8px 16px;
+		gap: 4px 16px;
 	}
 	.bl_archive_time::before {
 		content: "";
@@ -397,7 +421,6 @@ footer
 		font-size: 16px;
 		padding-left: 0;
 	}
-	
 }
 /************************
 pagenavi

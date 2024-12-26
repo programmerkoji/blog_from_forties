@@ -24,10 +24,10 @@
               <time class="bl_post_time" datetime="<?php the_time( 'Y-m-d' ); ?>"><?php the_time( 'Y.m.d' ); ?></time>
               <ul class="bl_post_catLabel">
                 <?php
-                $category = get_the_category();
-                $label_name = $category[0]->name;
-                $label_slug = $category[0]->slug;
-                echo '<li class="el_catLabel ' . esc_html($label_slug) . '">' . esc_html($label_name) . '</li>';
+                  $tags = get_the_tags();
+                  foreach ($tags as $tag) {
+                    echo '<li class="el_tagLabel">' . $tag->name . '</li>';
+                  }
                 ?>
               </ul>
             </div>

@@ -1,15 +1,16 @@
 <!-- footer -->
 <footer class="ly_foot">
-
-<?php if(is_page('portfolio')): ?>
+<?php
+$thisYear = date('Y');
+if(is_page(array('portfolio', 'about')) || is_page_template('page-worksdetail.php')): ?>
   <!-- copyright -->
   <div class="bl_foot_copyright">
-  <small>© 2022 サトウコウジ ポートフォリオ</small>
+    <?php echo '<small>© 2022-' . $thisYear . ' サトウコウジ ポートフォリオ</small>' ?>
   </div>
 <?php else: ?>
   <!-- copyright -->
   <div class="bl_foot_copyright">
-  <small>© 2022 40代からの挑戦</small>
+    <?php echo '<small>© 2022-' . $thisYear . ' 40代からの挑戦</small>' ?>
   </div>
 <?php endif; ?>
 
