@@ -18,6 +18,13 @@
     <img src="<?php echo get_template_directory_uri(); ?>/images/common/profile_img.jpg" width="150" height="150" alt="">
   </figure>
   <h2 class="bl_profile_ttl">プロフィール</h2>
-  <p class="bl_profile_txt">都内のWeb制作会社で、コーディングやWordPressテーマ構築などを行っております。<br>現在Laravelを勉強中です。</p>
+  <p class="bl_profile_txt">
+    バックエンドエンジニアをやってます。<br>
+    異業種から39歳でWeb制作会社でコーダー<br>
+    →41歳でエンジニアに。<br>
+    Web制作ではマークアップとWordPressテーマ構築<br>
+    現在はLaravelで主に開発しています。<br>
+    Reactも少し経験あり。
+  </p>
 </section>
 <!-- /.bl_profile -->
