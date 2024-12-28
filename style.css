@@ -10,7 +10,7 @@ Author: Koji Sato
 :root {
 	--black-base: #333;
 	--white: #fcfcfc;
-	--darkblue: #3A595E;
+	--darkblue: #3a595e;
 }
 
 /* リセット */
@@ -42,24 +42,26 @@ a:hover {
 }
 @font-face {
 	font-family: "MPLUS";
-	src: url('font/MPLUS1p-Bold_after.woff2') format('woff2');
+	src: url("font/MPLUS1p-Bold_after.woff2") format("woff2");
 	font-weight: 700;
 }
 @font-face {
 	font-family: "MPLUS";
-	src: url('font/MPLUS1p-Regular_after.woff2') format('woff2');
+	src: url("font/MPLUS1p-Regular_after.woff2") format("woff2");
 	font-weight: 400;
 }
 body {
-	background: #E9F2F6;
-	font-family: "MPLUS", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+	background: #e9f2f6;
+	font-family: "MPLUS", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+		"Hiragino Sans", Meiryo, sans-serif;
 	line-height: 1.7;
 	letter-spacing: 0.04em;
 	-webkit-text-size-adjust: 100%;
 	font-feature-settings: "palt";
 	color: var(--black-base);
 }
-body, html {
+body,
+html {
 	height: 100%;
 }
 body > footer {
@@ -86,7 +88,7 @@ th,
 td {
 	background: #fcfcfc;
 	padding: 8px;
-  border: 1px solid #b3b3b3;
+	border: 1px solid #b3b3b3;
 }
 ul,
 ol {
@@ -107,8 +109,8 @@ a {
 	color: inherit;
 }
 img {
-  width: 100%;
-  height: auto;
+	width: 100%;
+	height: auto;
 	vertical-align: middle;
 }
 picture {
@@ -130,20 +132,21 @@ textarea {
 	font-size: 16px;
 	outline: none;
 }
-input:-webkit-autofill{
+input:-webkit-autofill {
 	box-shadow: 0 0 0px 1000px var(--white) inset;
 }
-input[type=checkbox] {
+input[type="checkbox"] {
 	display: none;
 }
-input[type=radio] {
+input[type="radio"] {
 	display: none;
 }
-button, textarea {
+button,
+textarea {
 	font-family: inherit;
 	font-size: 100%;
 }
-@media screen and (max-width : 767px){
+@media screen and (max-width: 767px) {
 	body {
 		font-size: 14px;
 	}
@@ -183,10 +186,10 @@ common
 	justify-content: center;
 }
 .el_catLabel.html-css {
-	background: #93C088;
+	background: #93c088;
 }
 .el_catLabel.wordpress {
-	background: #F7B23C;
+	background: #f7b23c;
 }
 .el_bulletList > li {
 	padding-left: 1em;
@@ -204,14 +207,14 @@ common
 	border-radius: 2rem;
 	position: relative;
 	color: var(--white);
-	background: var(--darkblue);
+	background: #9b9b9b;
 }
 .el_tagLabel::before {
 	content: "#";
 	position: absolute;
 	left: 4px;
 }
-@media screen and (max-width : 1023px){
+@media screen and (max-width: 1023px) {
 	.ly_cont {
 		padding: 32px 0 56px;
 	}
@@ -275,7 +278,7 @@ header
 .bl_sns_item.facebook > a {
 	background: transparent;
 }
-@media screen and (max-width : 767px){
+@media screen and (max-width: 767px) {
 	.ly_head {
 		height: 62px;
 	}
@@ -292,7 +295,6 @@ header
 	.bl_sns_item.twitter img {
 		width: 20px;
 	}
-	
 }
 /* mv */
 .bl_mv {
@@ -305,8 +307,10 @@ header
 	content: "";
 	background-image: repeating-linear-gradient(
 		-45deg,
-		rgb(251 185 38 / 30%) 0px, rgb(251 185 38 / 30%) 1px,
-		rgba(0 0 0 /0) 0%, rgba(0 0 0 /0) 50%
+		rgb(251 185 38 / 30%) 0px,
+		rgb(251 185 38 / 30%) 1px,
+		rgba(0 0 0 /0) 0%,
+		rgba(0 0 0 /0) 50%
 	);
 	background-size: 6px 6px;
 	width: 100%;
@@ -331,7 +335,7 @@ footer
 	color: var(--white);
 	font-size: 14px;
 }
-@media screen and (max-width : 767px){
+@media screen and (max-width: 767px) {
 	.bl_foot {
 		display: block;
 	}
@@ -357,34 +361,33 @@ footer
 }
 .bl_archive_link {
 	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
+	flex-direction: column;
+	gap: 8px;
 }
 .bl_archive_head {
-	width: 30%;
+	width: 100%;
 	display: flex;
-	flex-direction: column;
+	flex-wrap: wrap;
 	gap: 4px 16px;
 }
 .bl_archive_time {
 	font-size: 14px;
-  letter-spacing: 0;
-  position: relative;
+	letter-spacing: 0;
+	position: relative;
 }
 .bl_archive_time::before {
-  content: "";
-  background: url(../images/common/clock-regular.svg) top center/cover no-repeat;
-  width: 16px;
-  height: 16px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
+	content: "";
+	background: url(../images/common/clock-regular.svg) top center/cover no-repeat;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
 }
 .bl_archive_ttl {
-	width: 70%;
+	width: 100%;
 	font-size: 16px;
-	padding-left: 16px;
 }
 .bl_post_catLabel {
 	display: flex;
@@ -398,17 +401,19 @@ footer
 	gap: 4px 8px;
 	flex-wrap: wrap;
 }
-@media screen and (max-width : 767px){
+@media screen and (max-width: 767px) {
 	.bl_archive_link {
 		gap: 8px;
 	}
 	.bl_archive_head {
+		flex-direction: column;
 		width: 100%;
 		gap: 4px 16px;
 	}
 	.bl_archive_time::before {
 		content: "";
-		background: url(../images/common/clock-regular.svg) top center/cover no-repeat;
+		background: url(../images/common/clock-regular.svg) top center/cover
+			no-repeat;
 		width: 16px;
 		height: 16px;
 		position: absolute;
@@ -426,7 +431,7 @@ footer
 pagenavi
 *************************/
 .wp-pagenavi {
-	margin-top: 56px;
+	margin-top: 32px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -443,10 +448,10 @@ pagenavi
 	justify-content: center;
 }
 .wp-pagenavi a {
-	background: #ACACAC;
+	background: #acacac;
 }
 .wp-pagenavi .current {
-	background: #766A5C;
+	background: #766a5c;
 }
 .wp-pagenavi .extend {
 	color: #545454;
@@ -485,6 +490,38 @@ aside
 	opacity: 1;
 	transition: background-color 0.3s ease;
 }
+/* tag */
+.bl_tag {
+	background: #f9f9f9;
+}
+.bl_tag_ttl {
+	font-size: 18px;
+	font-weight: 400;
+	padding: 8px 16px;
+	background: var(--darkblue);
+	color: var(--white);
+}
+.bl_tag_ttl .fa-list {
+	margin-right: 8px;
+	font-size: 16px;
+}
+.bl_tag_list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	padding: 16px;
+}
+.bl_tag_item > a {
+	display: block;
+	padding: 8px 16px;
+	font-size: 14px;
+	transition: background-color 0.3s ease;
+}
+.bl_tag_item > a:hover {
+	background-color: rgba(58, 89, 94, 0.2);
+	opacity: 1;
+	transition: background-color 0.3s ease;
+}
 /* profile */
 .bl_profile {
 	padding: 24px 16px;
@@ -505,7 +542,7 @@ aside
 .bl_profile_txt {
 	font-size: 14px;
 }
-@media screen and (max-width : 767px){
+@media screen and (max-width: 767px) {
 	.bl_category_ttl {
 		font-size: 16px;
 		padding: 8px 16px;

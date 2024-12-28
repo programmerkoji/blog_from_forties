@@ -17,20 +17,21 @@ if(is_home() || is_front_page()) {
 
 <?php if(is_page('portfolio')): ?>
   <title>サトウコウジ ポートフォリオ</title>
+<?php elseif(is_page('about')): ?>
+  <title>私について | サトウコウジ ポートフォリオ</title>
 <?php else: ?>
   <title><?php echo $title; bloginfo('name'); ?></title>
 <?php endif; ?>
 
-<?php if(is_page('portfolio')): ?>
+<?php if(is_page('portfolio') || is_page('about')): ?>
   <meta name="description" content="WebアプリやWebサイトの作品集のサイトです。">
 <?php else: ?>
   <meta name="description" content="<?php bloginfo('description'); ?>">
 <?php endif; ?>
 
-<meta name="description" content="<?php bloginfo('description'); ?>">
 <meta name="format-detection" content="telephone=no">
 
 <?php wp_head(); ?>
 </head>
 
-<body>
+<body class="portfolio_body">

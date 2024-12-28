@@ -8,12 +8,42 @@ function common_styles() {
         array(),
         filemtime( get_theme_file_path( 'style.css' ) )
     );
+    if(is_page(array('portfolio', 'about'))) {
+        wp_enqueue_style(
+            'portfolio-header-style',
+            get_theme_file_uri( 'css/portfolio_header.css'),
+            array(),
+            filemtime( get_theme_file_path( 'css/portfolio_header.css' )),
+        );
+    }
     if(is_page('portfolio')) {
         wp_enqueue_style(
             'portfolio-style',
             get_theme_file_uri( 'css/portfolio.css'),
             array(),
             filemtime( get_theme_file_path( 'css/portfolio.css' )),
+        );
+    }
+    if(is_page('about')) {
+        wp_enqueue_style(
+            'about-style',
+            get_theme_file_uri( 'css/portfolio.css'),
+            array(),
+            filemtime( get_theme_file_path( 'css/portfolio.css' )),
+        );
+    }
+    if(is_page_template('page-worksdetail.php')) {
+        wp_enqueue_style(
+            'portfolio-header-style',
+            get_theme_file_uri( 'css/portfolio_header.css'),
+            array(),
+            filemtime( get_theme_file_path( 'css/portfolio_header.css' )),
+        );
+        wp_enqueue_style(
+            'works-style',
+            get_theme_file_uri( 'css/works.css'),
+            array(),
+            filemtime( get_theme_file_path( 'css/works.css' )),
         );
     }
     if(is_page(array("contact","contact/check","contact/thanks"))) {

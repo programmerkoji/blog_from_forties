@@ -1,262 +1,98 @@
 <?php get_header(); ?>
 
-<!-- header -->
-<header class="ly_head portfolio">
-<div class="ly_cont_inner bl_head">
-
-<h1 class="bl_head_logo"><img src="<?php echo get_template_directory_uri(); ?>/images/portfolio/logo.svg" width="383" height="36" alt="サトウコウジ portfolio"></h1>
-
-<!-- SNS -->
-<ul class="bl_sns">
-<li class="bl_sns_item twitter"><a href="https://twitter.com/from_forties" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/common/twitter.svg" alt="twitter"></a></li>
-<li class="bl_sns_item github"><a href="https://github.com/programmerkoji" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/common/github.png" alt="github"></a></li>
-</ul>
-<!-- /.bl_sns -->
-
-</div>
-</header>
+<?php echo get_template_part('include/portfolio/header'); ?>
 
 <main class="ly_main">
-
-<section class="bl_portfolio">
-  <div class="ly_cont_inner">
-
-    <h2 class="el_mainTtl">英単語管理アプリ（Laravel × React）</h2>
-
-    <div class="bl_media">
-      <div class="bl_media_imgWrapper">
-        <a href="https://ew-spa.from-forties.net/login" target="_blank" class="bl_media_imgLink">
-          <figure class="bl_media_img">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/portfolio/english_word_img.png" width="16" height="9" alt="">
-            <figcaption>ログイン後の画面</figcaption>
-          </figure>
-        </a>
-      </div>
-      <!-- /.bl_media_imgWrapper -->
-      <div class="bl_media_body bl_detail">
-        <h3 class="bl_detail_ttl">サイトURL</h3>
-        <p><a href="https://ew-spa.from-forties.net/login" target="_blank">https://ew-spa.from-forties.net/login</a></p>
-        <h3 class="bl_detail_ttl">アプリ概要</h3>
-        <p>英単語の記憶度を管理するアプリ</p>
-        <h3 class="bl_detail_ttl">なぜ作成したのか</h3>
-        <p>
-          家族が英語の勉強をしているときに、英単語の記憶度を管理できるアプリがあると便利だというつぶやきからヒント得て作成しました。<br>
-        </p>
-        <h3 class="bl_detail_ttl">機能一覧</h3>
-        <div class="bl_functionList">
-          <div class="bl_functionList_tableWrapper">
-            <table>
-              <tbody>
-                <tr>
-                  <td>ログイン機能、絞り込み検索、並び替え機能、ページネーション、モーダル機能など</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+  <section class="bl_works">
+    <div class="ly_cont_inner">
+      <h2 class="bl_works_ttl">Works</h2>
+      <?php
+      $current_page_id = get_the_ID();
+      $args = array(
+        'post_type'      => 'page',          // 固定ページを対象
+        'posts_per_page' => -1,              // すべての子ページを取得
+        'post_parent'    => $current_page_id, // 親ページを指定
+        'orderby'        => 'menu_order',    // 表示順でソート
+        'order'          => 'ASC'            // 昇順で表示
+      );
+      $child_pages = new WP_Query($args);
+      if ($child_pages->have_posts()) : ?>
+        <ul class="bl_cardUnit">
+        <?php while ($child_pages->have_posts()) : $child_pages->the_post(); ?>
+        <li class="bl_card">
+          <a href="<?php the_permalink(); ?>" class="bl_card_link">
+            <figure class="bl_card_imgWrapper">
+              <img src="<?php echo the_field('image01'); ?>" alt="<?php the_title(); ?>">
+            </figure>
+            <div class="bl_card_body">
+              <h3 class="bl_card_ttl"><?php the_title(); ?></h3>
+              <p><?php the_field('サービス種類'); ?></p>
+              <div class="bl_card_linkTextWrapper">
+                <span class="bl_card_linkText">詳細はこちら</span>
+              </div>
+            </div>
+          </a>
+        </li>
+        <!-- /.bl_card -->
+        <?php
+          endwhile;
+          wp_reset_postdata();
+        ?>
+        </ul>
+      <?php endif; ?>
+    </div>
+  </section>
+  <section class="bl_blog">
+    <div class="ly_cont_inner">
+      <div class="bl_blog_inner">
+        <h2 class="bl_blog_ttl">Blog</h2>
+        <ul class="bl_archive">
+          <?php
+          // クエリを設定
+          $args = array(
+            'post_type'      => 'post',   // 投稿タイプを指定（通常の投稿なら 'post'）
+            'posts_per_page' => 3,       // 表示する投稿数
+            'orderby'        => 'date',  // 並び替え基準（ここでは投稿日）
+            'order'          => 'DESC'   // 降順（新しい投稿から表示）
+          );
+          // クエリの実行
+          $query = new WP_Query($args);
+          // 投稿がある場合のループ
+          if ($query->have_posts()) :
+            while ($query->have_posts()) : $query->the_post();
+          ?>
+              <li class="bl_archive_item">
+                <a href="<?php the_permalink(); ?>" class="bl_archive_link" target="_blank">
+                  <div class="bl_archive_head">
+                    <time class="bl_archive_time" datetime="<?php the_time('Y-m-d') ?>"><?php the_time('Y-m-d') ?></time>
+                    <ul class="bl_tagWrapper">
+                      <?php
+                      $tags = get_the_tags();
+                      foreach ($tags as $tag) {
+                        echo '<li class="el_tagLabel">' . $tag->name . '</li>';
+                      }
+                      ?>
+                    </ul>
+                  </div>
+                  <h3 class="bl_archive_ttl"><?php the_title(); ?></h3>
+                </a>
+              </li>
+          <?php
+            endwhile;
+            echo '</div>';
+          else :
+            echo '<p>投稿がありません。</p>';
+          endif;
+          // クエリのリセット
+          wp_reset_postdata();
+          ?>
+        </ul>
+        <div class="bl_btnWrapper">
+          <a href="<?php echo esc_url(home_url('/')); ?>" target="_blank" class="el_btn">ブログTOPへ</a>
         </div>
-        <h3 class="bl_detail_ttl">工夫したところ</h3>
-        <ul class="el_bulletList">
-          <li>別ユーザーが登録した単語の編集画面等に対し、URL直打ちでアクセスしたときに404を表示させる</li>
-          <li>削除の際に、ポップアップで削除前の確認を表示させる</li>
-        </ul>
-        <h3 class="bl_detail_ttl">使用技術</h3>
-        <ul class="el_bulletList">
-          <li>Laravel 9</li>
-          <li>Laravel Sanctum</li>
-          <li>React</li>
-          <li>Redux</li>
-          <li>TypeScript</li>
-          <li>MaterialUI</li>
-        </ul>
-        <h3 class="bl_detail_ttl">その他</h3>
-        <p>開発環境はMAMP、本番環境はさくらサーバーです。</p>
-        <p class="mt-1em">
-          その他の詳細についてはGitHubにてご確認をお願いします。<br>
-          <a href="https://github.com/programmerkoji/english_words_frontend" target="_blank">フロントエンド</a>
-          <a href="https://github.com/programmerkoji/english_words_backend" target="_blank">バックエンド</a>
-        </p>
       </div>
-      <!-- /.bl_media_body -->
     </div>
-    <!-- /.bl_media -->
-  </div>
-  <!-- /.ly_cont_inner -->
-</section>
-<!-- /.bl_portfolio -->
-
-<section class="bl_portfolio">
-  <div class="ly_cont_inner">
-
-    <h2 class="el_mainTtl">WEB人 / 求人サイト（Laravel）</h2>
-
-    <div class="bl_media">
-      <div class="bl_media_imgWrapper">
-        <a href="https://webjin.from-forties.net/" target="_blank" class="bl_media_imgLink">
-          <figure class="bl_media_img">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/portfolio/webjin_user_img.png" width="16" height="9" alt="">
-            <figcaption>ユーザー画面</figcaption>
-          </figure>
-        </a>
-        <a href="https://webjin.from-forties.net/admin/login/" target="_blank" class="bl_media_imgLink">
-          <figure class="bl_media_img">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/portfolio/webjin_admin_img.png" width="16" height="9" alt="">
-            <figcaption>管理者画面</figcaption>
-          </figure>
-        </a>
-      </div>
-      <!-- /.bl_media_imgWrapper -->
-      <div class="bl_media_body bl_detail">
-        <h3 class="bl_detail_ttl">サイトURL</h3>
-        <p>ユーザー：<a href="https://webjin.from-forties.net/" target="_blank">https://webjin.from-forties.net/</a></p>
-        <p>管理者：<a href="https://webjin.from-forties.net/admin/login/" target="_blank">https://webjin.from-forties.net/admin/login/</a></p>
-        <h3 class="bl_detail_ttl">アプリ概要</h3>
-        <p>Web制作の仕事専門の求人サイト。</p>
-        <h3 class="bl_detail_ttl">なぜ作成したのか</h3>
-        <p>
-          マルチログイン機能を使用したサイトをイチから実装したいと思ったのがきっかけです。<br>
-          その中でも求人サイトを作成した理由については、以前に求人サイトの営業をしていた経験があり、管理画面を使用したことがあったので作成のイメージがしやすかったためです。
-        </p>
-        <h3 class="bl_detail_ttl">機能一覧</h3>
-        <dl class="bl_functionList">
-          <div>
-            <dt class="bl_functionList_dttl">・ユーザー側</dt>
-            <dd class="bl_functionList_ddata">
-              <table>
-                <tbody>
-                  <tr>
-                    <th>一般ユーザー</th>
-                    <td>求人一覧画面、求人詳細画面</td>
-                  </tr>
-                  <tr>
-                    <th>ログインユーザー</th>
-                    <td>お気に入り機能、応募フォーム（確認画面有り）</td>
-                  </tr>
-                  <tr>
-                    <th>その他</th>
-                    <td>マルチログイン機能、絞り込み検索、フリーワード検索、ページネーション</td>
-                  </tr>
-                </tbody>
-              </table>
-            </dd>
-          </div>
-          <div>
-            <dt class="bl_functionList_dttl">・管理者側</dt>
-            <dd class="bl_functionList_ddata">
-              <table>
-                <tbody>
-                  <tr>
-                    <th>求人管理</th>
-                    <td>新規投稿、一覧表示、詳細表示、編集、削除</td>
-                  </tr>
-                  <tr>
-                    <th>企業管理</th>
-                    <td>新規投稿、一覧表示、詳細表示、編集、削除</td>
-                  </tr>
-                  <tr>
-                    <th>画像管理</th>
-                    <td>新規投稿、一覧表示、編集、削除</td>
-                  </tr>
-                  <tr>
-                    <th>その他</th>
-                    <td>マルチログイン機能、フリーワード検索、ページネーション、カレンダー表示</td>
-                  </tr>
-                </tbody>
-              </table>
-            </dd>
-          </div>
-        </dl>
-        <h3 class="bl_detail_ttl">工夫したところ</h3>
-        <ul class="el_bulletList">
-          <li>EagerLoadingでN+1問題を解消</li>
-          <li>ローカルスコープやクラスへの切り分けにより、Controllerの肥大化を防止</li>
-        </ul>
-        <h3 class="bl_detail_ttl">使用技術</h3>
-        <ul class="el_bulletList">
-          <li>Laravel 8</li>
-          <li>Laravel Breeze</li>
-          <li>Flatpickr</li>
-          <li>toastr.js</li>
-        </ul>
-        <h3 class="bl_detail_ttl">その他</h3>
-        <p>開発環境はMAMP、本番環境はさくらサーバーです。</p>
-        <p class="mt-1em">
-          その他の詳細についてはGitHubにてご確認をお願いします。<br>
-          <a href="https://github.com/programmerkoji/laravel_recruit_site" target="_blank">GitHubはこちら</a>
-        </p>
-        
-      </div>
-      <!-- /.bl_media_body -->
-    </div>
-    <!-- /.bl_media -->
-  </div>
-  <!-- /.ly_cont_inner -->
-</section>
-<!-- /.bl_portfolio -->
-
-<section class="bl_portfolio">
-  <div class="ly_cont_inner">
-
-    <h2 class="el_mainTtl">英単語管理アプリ（Laravel）</h2>
-
-    <div class="bl_media">
-      <div class="bl_media_imgWrapper">
-        <a href="https://from-forties.net/english-words/login" target="_blank" class="bl_media_imgLink">
-          <figure class="bl_media_img">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/portfolio/english_word_img.png" width="16" height="9" alt="">
-            <figcaption>ログイン後の画面</figcaption>
-          </figure>
-        </a>
-      </div>
-      <!-- /.bl_media_imgWrapper -->
-      <div class="bl_media_body bl_detail">
-        <h3 class="bl_detail_ttl">サイトURL</h3>
-        <p><a href="https://from-forties.net/english-words/login" target="_blank">https://from-forties.net/english-words/login</a></p>
-        <h3 class="bl_detail_ttl">アプリ概要</h3>
-        <p>英単語の記憶度を管理するアプリ</p>
-        <h3 class="bl_detail_ttl">なぜ作成したのか</h3>
-        <p>
-          家族が英語の勉強をしているときに、英単語の記憶度を管理できるアプリがあると便利だというつぶやきからヒント得て作成しました。<br>
-          
-        </p>
-        <h3 class="bl_detail_ttl">機能一覧</h3>
-        <div class="bl_functionList">
-          <div class="bl_functionList_tableWrapper">
-            <table>
-              <tbody>
-                <tr>
-                  <td>ログイン機能、絞り込み検索、並び替え機能、ページネーション、モーダル機能など</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <h3 class="bl_detail_ttl">工夫したところ</h3>
-        <ul class="el_bulletList">
-          <li>別ユーザーが登録した単語の編集画面等に対し、URL直打ちでアクセスしたときに404を表示させる</li>
-          <li>削除の際に、ポップアップで削除前の確認を表示させる</li>
-        </ul>
-        <h3 class="bl_detail_ttl">使用技術</h3>
-        <ul class="el_bulletList">
-          <li>Laravel 8</li>
-          <li>Laravel Breeze</li>
-          <li>Micromodal.js</li>
-        </ul>
-        <h3 class="bl_detail_ttl">その他</h3>
-        <p>開発環境はMAMP、本番環境はさくらサーバーです。</p>
-        <p class="mt-1em">
-          その他の詳細についてはGitHubにてご確認をお願いします。<br>
-          <a href="https://github.com/programmerkoji/english_words" target="_blank">GitHubはこちら</a>
-        </p>
-        
-      </div>
-      <!-- /.bl_media_body -->
-    </div>
-    <!-- /.bl_media -->
-  </div>
-  <!-- /.ly_cont_inner -->
-</section>
-<!-- /.bl_portfolio -->
-
+  </section>
 </main>
 
 <?php get_footer(); ?>
