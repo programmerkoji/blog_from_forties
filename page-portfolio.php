@@ -26,7 +26,8 @@
             </figure>
             <div class="bl_card_body">
               <h3 class="bl_card_ttl"><?php the_title(); ?></h3>
-              <p><?php the_field('サービス種類'); ?></p>
+              <p>- <?php the_field('サービス種類'); ?> -</p>
+              <p><?php the_field('使用言語、フレームワーク'); ?></p>
               <div class="bl_card_linkTextWrapper">
                 <span class="bl_card_linkText">詳細はこちら</span>
               </div>
