@@ -1,0 +1,173 @@
+@charset "utf8";
+
+.bl_contact {
+  background: #f9f9f9;
+  padding: 64px 0;
+  height: 100%;
+}
+.bl_contact_ttl {
+	font-weight: normal;
+	font-size: 20px;
+	padding-bottom: 4px;
+	border-bottom: 1px solid #999;
+	margin-bottom: 48px;
+}
+
+/* form */
+.bl_form_item {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.bl_form_item:not(:first-of-type) {
+	margin-top: 24px;
+}
+.bl_form_ttl {
+	width: 30%;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+.bl_form_ttl.el_require::after {
+	content: "必須";
+	font-size: 12px;
+	background: #e65032;
+	color: #fcfcfc;
+	padding: 0 4px;
+	position: absolute;
+	top: 50%;
+	right: 32px;
+	transform: translateY(-50%);
+}
+.bl_form_inputArea {
+  width: 70%;
+}
+.bl_form_input {
+  width: 100%;
+	height: 40px;
+	border: 1px solid #b3b3b3;
+	background: #fcfcfc;
+	border-radius: 4px;
+	padding: 0 16px;
+}
+.bl_form_textarea {
+	width: 100%;
+	height: 240px;
+	border: 1px solid #b3b3b3;
+	background: #fcfcfc;
+	border-radius: 4px;
+	padding: 16px;
+	resize: none;
+}
+/* チェックボックス */
+.bl_checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+}
+.bl_checkbox_item {
+  width: calc((100% - 8px) / 2);
+}
+.bl_checkbox_input + span {
+  position: relative;
+  padding-left: 24px;
+  cursor: pointer;
+}
+.bl_checkbox_input + span::before {
+  content: "";
+  background: #fff;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #B0AB99;
+  border-radius: 2px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.bl_checkbox_input + span::after {
+  content: "";
+  display: block;
+  background: transparent;
+  border-bottom: 2px solid var(--darkblue);
+  border-right: 2px solid var(--darkblue);
+  width: 8px;
+  height: 16px;
+  position: absolute;
+  left: 5px;
+  top: -4px;
+  transform: rotate(42deg);
+  opacity: 0;
+}
+.bl_checkbox_input:checked + span::after {
+  opacity: 1;
+}
+.bl_form_btnWrapper {
+  margin: 40px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.bl_form_btn {
+	max-width: 240px;
+	width: 100%;
+	height: 48px;
+  color: #fcfcfc;
+	background: var(--darkblue);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  border: 1px solid #444;
+  transition: opacity 0.3s ease;
+}
+.bl_form_btn:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+.bl_form_btn.back {
+  background: #fff;
+  color: #444;
+}
+.bl_thanks .bl_contact_ttl {
+  margin-bottom: 32px;
+}
+.bl_thanks p:not(:first-of-type) {
+  margin-top: 1em;
+}
+.bl_thanks_btnWrapper {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+@media screen and (max-width: 767px) {
+	.bl_form_item {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+	}
+	.bl_form_ttl {
+    font-size: 14px;
+		width: 100%;
+	}
+  .bl_form_inputArea {
+    width: 100%;
+  }
+	.bl_form_ttl.el_require::after {
+		right: 0;
+	}
+  .bl_form_btnWrapper {
+    gap: 16px;
+  }
+  .bl_form_btn {
+    max-width: none;
+    flex: 1;
+  }
+  .bl_form_btn.back {
+    flex: 0 1 120px;
+  }
+}

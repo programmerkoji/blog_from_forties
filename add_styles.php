@@ -54,10 +54,16 @@ function common_styles() {
             filemtime( get_theme_file_path( 'css/contact.css' )),
         );
         wp_enqueue_style(
-            'form-style',
-            get_theme_file_uri( 'css/form.css'),
+            'portfolio-header-style',
+            get_theme_file_uri( 'css/portfolio_header.css'),
             array(),
-            filemtime( get_theme_file_path( 'css/form.css' )),
+            filemtime( get_theme_file_path( 'css/portfolio_header.css' )),
+        );
+        wp_enqueue_style(
+            'portfolio-style',
+            get_theme_file_uri( 'css/portfolio.css'),
+            array(),
+            filemtime( get_theme_file_path( 'css/portfolio.css' )),
         );
     }
     if(is_single()) {

@@ -1,6 +1,9 @@
 /* --------------
 main
 -----------------*/
+.ly_main {
+	min-height: calc(100% - 253px);
+}
 .bl_works {
 	background: #f9f9f9;
 	padding: 64px 0;
@@ -137,6 +140,9 @@ main
 	margin: 0 auto;
 }
 @media screen and (max-width: 767px) {
+	.ly_main {
+		min-height: calc(100% - 250px);
+	}
 	.bl_blog {
 		padding: 64px 0;
 	}
