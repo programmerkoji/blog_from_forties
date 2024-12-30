@@ -20,7 +20,8 @@
 				<a href="<?php echo esc_url( home_url('/portfolio')); ?>" class="bl_form_btn">ポートフォリオへ</a>
 				<a href="<?php echo esc_url( home_url('/')); ?>" class="bl_form_btn">ブログTOPへ</a>
 			</div>
-			<?php //echo do_shortcode('[mwform_formkey key="187"]'); 
+			<!-- mwformのキーは本番のキーでpushすること -->
+			<?php echo do_shortcode('[mwform_formkey key="176"]'); 
 			?>
 		</div>
 	</section>
