@@ -3,7 +3,7 @@
 <?php echo get_template_part('include/portfolio/header'); ?>
 
 <main class="ly_main">
-  <section class="bl_works">
+  <section class="bl_works" id="works">
     <div class="ly_cont_inner">
       <h2 class="bl_works_ttl">Works</h2>
       <?php

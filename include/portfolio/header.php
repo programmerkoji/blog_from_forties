@@ -19,7 +19,7 @@
 		</div>
 		<ul class="bl_head_nav">
 			<li><a href="<?php echo esc_url(home_url('/about')); ?>">About</a></li>
-			<li><a href="<?php echo esc_url(home_url('/portfolio')); ?>#works">Works</a></li>
+			<li><a href="<?php echo esc_url(home_url('/portfolio/#works')); ?>">Works</a></li>
 			<li><a href="<?php echo esc_url(home_url('/')); ?>" target="_blank">Blog</a></li>
 			<li><a href="<?php echo esc_url(home_url('/contact')); ?>">Contact</a></li>
 		</ul>
