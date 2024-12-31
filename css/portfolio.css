@@ -211,9 +211,6 @@ cta
 	margin: 0 auto;
 }
 @media screen and (max-width: 767px) {
-	.bl_cta {
-		padding: 80px 0;
-	}
 	.bl_cta_ttl {
 		margin-bottom: 24px;
 	}
