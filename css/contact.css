@@ -130,6 +130,9 @@
   background: #fff;
   color: #444;
 }
+.bl_thanks {
+  min-height: calc(100vh - 253px);
+}
 .bl_thanks .bl_contact_ttl {
   margin-bottom: 32px;
 }
@@ -169,5 +172,8 @@
   }
   .bl_form_btn.back {
     flex: 0 1 120px;
+  }
+  .bl_thanks {
+    min-height: calc(100vh - 250px);
   }
 }

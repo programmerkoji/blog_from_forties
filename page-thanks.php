@@ -21,8 +21,7 @@
 				<a href="<?php echo esc_url( home_url('/')); ?>" class="bl_form_btn">ブログTOPへ</a>
 			</div>
 			<!-- mwformのキーは本番のキーでpushすること -->
-			<?php echo do_shortcode('[mwform_formkey key="176"]'); 
-			?>
+			<?php  echo do_shortcode('[mwform_formkey key="176"]'); ?>
 		</div>
 	</section>
 </main>

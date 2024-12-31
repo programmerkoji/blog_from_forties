@@ -19,12 +19,16 @@ if(is_home() || is_front_page()) {
   <title>サトウコウジ ポートフォリオ</title>
 <?php elseif(is_page('about')): ?>
   <title>私について | サトウコウジ ポートフォリオ</title>
+<?php elseif(is_page(array('contact', 'check', 'thanks'))): ?>
+  <title>お問い合わせ | サトウコウジ</title>
 <?php else: ?>
   <title><?php echo $title; bloginfo('name'); ?></title>
 <?php endif; ?>
 
 <?php if(is_page('portfolio') || is_page('about')): ?>
   <meta name="description" content="WebアプリやWebサイトの作品集のサイトです。">
+<?php elseif(is_page(array('contact', 'check', 'thanks'))): ?>
+  <meta name="description" content="サトウコウジへのお問い合わせのページです。">
 <?php else: ?>
   <meta name="description" content="<?php bloginfo('description'); ?>">
 <?php endif; ?>
