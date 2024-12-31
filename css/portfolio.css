@@ -4,6 +4,37 @@ main
 .ly_main {
 	min-height: calc(100% - 253px);
 }
+.el_btn {
+	max-width: 320px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px;
+}
+.pc_only {
+	display: block;
+}
+.sp_only {
+	display: none;
+}
+@media screen and (max-width: 767px) {
+	.ly_main {
+		min-height: calc(100% - 250px);
+	}
+	.el_btn {
+		max-width: 100%;
+	}
+	.pc_only {
+		display: none;
+	}
+	.sp_only {
+		display: block;
+	}
+}
+/* --------------
+works
+-----------------*/
 .bl_works {
 	background: #f9f9f9;
 	padding: 64px 0;
@@ -101,7 +132,9 @@ main
 		max-width: 100%;
 	}
 }
-
+/* --------------
+blog
+-----------------*/
 .bl_blog {
 	padding: 80px 0;
 }
@@ -130,19 +163,10 @@ main
 	font-weight: normal;
 }
 .bl_blog .el_btn {
-	max-width: 320px;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 8px;
 	border: 1px solid #999999;
 	margin: 0 auto;
 }
 @media screen and (max-width: 767px) {
-	.ly_main {
-		min-height: calc(100% - 250px);
-	}
 	.bl_blog {
 		padding: 64px 0;
 	}
@@ -159,5 +183,35 @@ main
 	}
 	.bl_blog .el_btn {
 		max-width: 100%;
+	}
+}
+/* --------------
+cta
+-----------------*/
+.bl_cta {
+	background: #f9f9f9;
+	padding: 64px 0;
+}
+.bl_cta_ttl {
+	font-weight: normal;
+	text-align: center;
+	font-size: 40px;
+	letter-spacing: 0.08em;
+	margin-bottom: 40px;
+}
+.bl_cta_text {
+	text-align: center;
+}
+.bl_cta .bl_btnWrapper {
+	margin-top: 40px;
+}
+.bl_cta .el_btn {
+	background: var(--darkblue);
+	color: var(--white);
+	margin: 0 auto;
+}
+@media screen and (max-width: 767px) {
+	.bl_cta {
+		padding: 80px 0;
 	}
 }

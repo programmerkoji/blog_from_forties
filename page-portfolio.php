@@ -94,6 +94,17 @@
       </div>
     </div>
   </section>
+  <section class="bl_cta">
+    <div class="ly_cont_inner">
+      <h2 class="bl_cta_ttl">Contact</h2>
+      <p class="bl_cta_text">
+        お仕事のご依頼、ご相談、その他の問い合わせなど、<br class="sp_only">お気軽にご連絡ください。
+      </p>
+      <div class="bl_btnWrapper">
+        <a href="<?php echo esc_url(home_url('/contact')); ?>" class="el_btn">お問い合わせ</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <?php get_footer(); ?>
