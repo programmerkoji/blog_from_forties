@@ -272,7 +272,7 @@ header
 	align-items: center;
 	justify-content: center;
 }
-.bl_sns_item.twitter img {
+.bl_sns_item.x_logo img {
 	width: 24px;
 }
 .bl_sns_item.facebook > a {

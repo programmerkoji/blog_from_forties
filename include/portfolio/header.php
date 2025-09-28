@@ -13,7 +13,7 @@
 					<a href="https://github.com/programmerkoji" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/common/github.png" alt="GitHub"></a>
 				</li>
 				<li class="bl_sns_list x">
-					<a href="https://twitter.com/from_forties" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/common/x_logo.png" alt="GitHub"></a>
+					<a href="https://x.com/from_forties" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/common/x_logo.png" alt="x"></a>
 				</li>
 			</ul>
 		</div>
