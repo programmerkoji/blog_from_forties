@@ -68,3 +68,40 @@ function custom_wp_dequeue_css()
     wp_dequeue_style('global-styles');
 }
 add_action( 'wp_enqueue_scripts', 'custom_wp_dequeue_css', 100);
+
+// カスタム投稿タイプ：PHP逆引き
+function create_php_ref_post_type() {
+  register_post_type('php_ref', array(
+      'labels' => array(
+          'name' => 'PHP逆引き',
+          'singular_name' => 'PHP逆引き',
+          'add_new' => '新規追加',
+          'add_new_item' => 'PHP逆引きを追加',
+          'edit_item' => 'PHP逆引きを編集',
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array('slug' => 'php'),
+      'supports' => array('title', 'editor', 'excerpt', 'custom-fields'),
+      'menu_icon' => 'dashicons-editor-code',
+      'show_in_rest' => true,
+  ));
+}
+add_action('init', 'create_php_ref_post_type');
+
+// カスタムタクソノミー：カテゴリ（例: 文字列操作, 配列操作）
+function create_php_ref_taxonomy() {
+  register_taxonomy(
+      'php_category',
+      'php_ref',
+      array(
+          'labels' => array(
+              'name' => 'PHPカテゴリ',
+              'singular_name' => 'PHPカテゴリ',
+          ),
+          'hierarchical' => true, // true=カテゴリ風、false=タグ風
+          'rewrite' => array('slug' => 'php-category'),
+      )
+  );
+}
+add_action('init', 'create_php_ref_taxonomy');
